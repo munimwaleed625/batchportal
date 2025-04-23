@@ -1,31 +1,5 @@
 @extends('layout')
 @section('content')
-
-  <nav class="custom-navbar d-flex align-items-center justify-content-between">
-    <!-- Left Logo -->
-    <div class="d-flex align-items-center">
-      <img src="download.jpg" alt="Logo" width="80" height="80">
-    </div>
-
-    <!-- Center/Right Text -->
-    <div class="d-flex align-items-center">
-      <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
-      <img src="055a91979264664a1ee12b9453610d82.jpg" alt="Profile" class="profile-icon">
-    </div>
-  </nav>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <a href="#">Dashboard</a>
-    <a href="#">Applications</a>
-    <a href="#">Manage Courses</a>
-    <a href="#">I-Grade</a>
-    <a href="#">Student-Teacher Conflicts</a>
-    <a href="#" class="active">ExtraCurricularActivity</a>
-    <a href="#">Student-Teacher Conflicts</a>
-    <a href="#">TimeTable Clashes</a>
-    <a href="#">ExtraCurricular Activity</a>
-    <a href="#">Scholarship/Financial Aid</a>
-</div>
 <div class="content">
     <h2>ExtraCurricularActivity</h2>
 

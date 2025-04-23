@@ -7,23 +7,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
 
-    .custom-navbar {
-      background-color: white;
-      border-bottom: 5px solid #f1c40f; /* Yellow border */
-      border-top: 5px solid #002147;   /* Dark blue border */
-      padding: 10px 20px;
-    }
-    .portal-title {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #002147;
-    }
-    .profile-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+        .custom-navbar {
+            background-color: white;
+            border-bottom: 5px solid #f1c40f; /* Yellow border */
+            border-top: 5px solid #002147;   /* Dark blue border */
+            padding: 10px 20px;
+        }
+        .portal-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #002147;
+        }
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
         body {
             font-family: Arial, sans-serif;
         }
@@ -81,45 +81,46 @@
     </style>
 </head>
 <body>
-    <nav class="custom-navbar d-flex align-items-center justify-content-between">
-        <!-- Left Logo -->
-        <div class="d-flex align-items-center">
-          <img src="download.jpg" alt="Logo" width="80" height="80">
-        </div>
+<nav class="custom-navbar d-flex align-items-center justify-content-between">
+    <!-- Left Logo -->
+    <div class="d-flex align-items-center">
+        <img src="download.jpg" alt="Logo" width="80" height="80">
+    </div>
 
-        <!-- Center/Right Text -->
-        <div class="d-flex align-items-center">
-          <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
-          <img src="055a91979264664a1ee12b9453610d82.jpg" alt="Profile" class="profile-icon">
-        </div>
-      </nav>
+    <!-- Center/Right Text -->
+    <div class="d-flex align-items-center">
+        <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
+        <img src="055a91979264664a1ee12b9453610d82.jpg" alt="Profile" class="profile-icon">
+    </div>
+</nav>
 
 
 
-          </a>
-        </div>
-      </nav>
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="sidebar">
+</a>
+</div>
+</nav>
+<div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+        <div class="sidebar">
             <a href="#" class="active">Dashboard</a>
             <a href="#">Applications</a>
-            <a href="#">Manage Courses</a>
             <a href="#">I-Grade</a>
-            <a href="#">Academic Progress</a>
-              <a href="#">Report an Issue</a>
-              <a href="#">Manage Profile</a>
-          </div>
+            <a href="#">Student Conflicts</a>
+            <a href="#">Timetable Clashes</a>
+            <a href="#">ExtraCurricular Activities</a>
+            <a href="#">Apply for Scholarship Aid</a>
+            <a href="#">Manage Profile</a>
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-            @yield('content')
-        </div>
-      </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        © 2025 HITEC University Taxila.
     </div>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+        @yield('content')
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    © 2025 HITEC University Taxila.
+</div>
 
 </body>
 </html>
