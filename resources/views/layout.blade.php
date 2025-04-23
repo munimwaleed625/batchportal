@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HITEC Batch Advisory Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style> 
-    
+    <style>
+
     .custom-navbar {
       background-color: white;
       border-bottom: 5px solid #f1c40f; /* Yellow border */
@@ -86,7 +86,7 @@
         <div class="d-flex align-items-center">
           <img src="download.jpg" alt="Logo" width="80" height="80">
         </div>
-    
+
         <!-- Center/Right Text -->
         <div class="d-flex align-items-center">
           <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
@@ -94,8 +94,8 @@
         </div>
       </nav>
 
-      
-    
+
+
           </a>
         </div>
       </nav>
@@ -110,7 +110,7 @@
             <a href="#">Academic Progress</a>
             <a href="#">Feedbacks</a>
             <a href="#">Manage Profile</a>
-            <a href="#">Apply for Scholarship/Financial Aid</a>
+            <a href="#">Applications for Scholarship Aid</a>
           </div>
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">

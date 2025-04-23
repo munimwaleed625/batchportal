@@ -1,87 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>HITEC Batch Advisory Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .custom-navbar {
-      background-color: white;
-      border-bottom: 5px solid #f1c40f; /* Yellow border */
-      border-top: 5px solid #002147;   /* Dark blue border */
-      padding: 10px 20px;
-    }
-    .portal-title {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #002147;
-    }
-    .profile-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    body {
-            font-family: Arial, sans-serif;
-        }
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #f8f9fa;
-            border-right: 2px solid #ddd;
-            padding-top: 20px;
-            position: fixed;
-        }
-        .sidebar a {
-            display: block;
-            padding: 12px 20px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            border-bottom: 1px solid #ddd;
-        }
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #e9ecef;
-            color: #007bff;
-            font-weight: bold;
-        }
-        .sidebar a::before {
-            content: ">";
-            margin-right: 8px;
-            color: #333;
-        }
-        .topbar {
-            background-color: #fff;
-            padding: 15px;
-            border-bottom: 3px solid #f0ad4e;
-            text-align: right;
-            font-weight: bold;
-        }
-        .content {
-            margin-left: 260px;
-            padding: 20px;
-        }
-        .card {
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-        .footer {
-            text-align: center;
-            padding: 10px;
-            background: #002147;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
-  </style>
-</head>
-<body>
-
+@extends('layout')
+@section('content')
   <nav class="custom-navbar d-flex align-items-center justify-content-between">
     <!-- Left Logo -->
     <div class="d-flex align-items-center">
@@ -100,19 +18,18 @@
     <a href="#">Applications</a>
     <a href="#">Manage Courses</a>
     <a href="#">I-Grade</a>
-    <a href="#">Student-Teacher Conflicts</a>
-    <a href="#" class="active">ExtraCurricularActivity</a>
-    <a href="#">Student-Teacher Conflicts</a>
+    <a href="#" class="active">Students-Teacher Conflicts</a>
+    <a href="#">Student Conflicts</a>
     <a href="#">TimeTable Clashes</a>
     <a href="#">ExtraCurricular Activity</a>
     <a href="#">Scholarship/Financial Aid</a>
 </div>
 <div class="content">
-    <h2>ExtraCurricularActivity</h2>
+    <h2>Students-Teacher Conflicts</h2>
 
     <div class="container my-5 d-flex justify-content-center">
         <div class="w-75">
-          
+
           <div class="card shadow-sm rounded">
             <div class="card-body">
               <h6 class="fw-bold mb-3">Search</h6>
@@ -133,7 +50,7 @@
           </div>
         </div>
       </div>
-       
+
       <div class="container my-4 d-flex justify-content-center">
         <div class="w-75">
           <div class="card shadow-sm rounded">
@@ -233,21 +150,4 @@
         </div>
       </div>
 
-
-      <footer class="footer text-center text-white py-2">
-        © 2025 HITEC University Taxila.
-      </footer>
-      
-      <style>
-        .footer {
-          background-color: #003366; /* Deep blue */
-          font-size: 14px;
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          z-index: 1000;
-        }
-      </style>
-      
-</body>
-</html>
+@endsection
