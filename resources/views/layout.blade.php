@@ -81,35 +81,35 @@
     </style>
 </head>
 <body>
+
     <nav class="custom-navbar d-flex align-items-center justify-content-between">
         <!-- Left Logo -->
         <div class="d-flex align-items-center">
-          <img src="download.jpg" alt="Logo" width="80" height="80">
+            <img src="{{ asset('assets/img/download.jpg') }}" alt="Logo" width="80" height="80">
         </div>
 
         <!-- Center/Right Text -->
         <div class="d-flex align-items-center">
           <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
-          <img src="055a91979264664a1ee12b9453610d82.jpg" alt="Profile" class="profile-icon">
+            <img src="{{ asset('assets/img/055a91979264664a1ee12b9453610d82.jpg') }}" alt="Profile" class="profile-icon">
         </div>
       </nav>
-
-
 
           </a>
         </div>
       </nav>
       <div class="row">
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="sidebar">
-            <a href="#" class="active">Dashboard</a>
-            <a href="#">Applications</a>
-            <a href="#">Manage Courses</a>
-            <a href="#">I-Grade</a>
-            <a href="#">Academic Progress</a>
-              <a href="#">Report an Issue</a>
-              <a href="#">Manage Profile</a>
-          </div>
+            <div class="sidebar">
+                <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Dashboard</a>
+                <a href="{{ route('application') }}" class="{{ request()->is('application') ? 'active' : '' }}">Applications</a>
+                <a href="{{ route('courses') }}" class="{{ request()->is('courses') ? 'active' : '' }}">Manage Courses</a>
+                <a href="{{ route('igrade') }}" class="{{ request()->is('igrade') ? 'active' : '' }}">I-Grade</a>
+                <a href="{{ route('progress') }}" class="{{ request()->is('progress') ? 'active' : '' }}">Academic Progress</a>
+                <a href="{{ route('issue') }}" class="{{ request()->is('issue') ? 'active' : '' }}">Report an Issue</a>
+                <a href="{{ route('profile') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Manage Profile</a>
+            </div>
+
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
             @yield('content')

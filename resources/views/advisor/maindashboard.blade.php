@@ -3,7 +3,7 @@
     <div class="content">
         <h2>Dashboard</h2>
         <div class="row mb-4">
-          
+
             <div class="col-md-4">
               <div class="card">
                 <div class="card-header">Applications</div>
@@ -17,7 +17,7 @@
                 </div>
               </div>
             </div>
-    
+
             <div class="col-md-4">
                 <div class="card">
                   <div class="card-header">Manage Students</div>
@@ -30,7 +30,7 @@
                   </div>
                 </div>
               </div>
-            
+
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <h5>Conflicts</h5>

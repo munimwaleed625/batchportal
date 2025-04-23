@@ -1,7 +1,7 @@
 @extends('layout_student')
 @section('content')
 <div class="content">
-    <h2>TimeTable Clash</h2>
+    <h2>Profile</h2>
 
     <div class="container my-5 d-flex justify-content-center">
         <div class="w-75">

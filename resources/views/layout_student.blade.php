@@ -102,15 +102,16 @@
 <div class="row">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="sidebar">
-            <a href="#" class="active">Dashboard</a>
-            <a href="#">Applications</a>
-            <a href="#">I-Grade</a>
-            <a href="#">Student Conflicts</a>
-            <a href="#">Timetable Clashes</a>
-            <a href="#">ExtraCurricular Activities</a>
-            <a href="#">Apply for Scholarship Aid</a>
-            <a href="#">Manage Profile</a>
+            <a href="{{ route('student_main_dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Dashboard</a>
+            <a href="{{ route('applications') }}" class="{{ request()->is('application') ? 'active' : '' }}">Applications</a>
+            <a href="{{ route('i_grade') }}" class="{{ request()->is('igrade') ? 'active' : '' }}">I-Grade</a>
+            <a href="{{ route('student_conflicts') }}" class="{{ request()->is('conflicts') ? 'active' : '' }}">Student Conflicts</a>
+            <a href="{{ route('timetable_clash') }}" class="{{ request()->is('timetable') ? 'active' : '' }}">Timetable Clashes</a>
+            <a href="{{ route('extra_curricular_activity') }}" class="{{ request()->is('activities') ? 'active' : '' }}">ExtraCurricular Activities</a>
+            <a href="{{ route('scholarship') }}" class="{{ request()->is('scholarship') ? 'active' : '' }}">Apply for Scholarship Aid</a>
+            <a href="{{ route('manage_profile_student') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Manage Profile</a>
         </div>
+
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
         @yield('content')

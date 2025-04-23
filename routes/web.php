@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdvisorController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CommonController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +21,73 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', [\App\Http\Controllers\advisorController::class, 'index']);
+//Route::get('/dashboard', [\App\Http\Controllers\advisorcontroller::class, 'dashboard']);
+//Route::get('/application', [\App\Http\Controllers\advisorcontroller::class, 'application']);
+//Route::get('/courses', [\App\Http\Controllers\advisorcontroller::class, 'courses']);
+//Route::get('/grades', [\App\Http\Controllers\advisorcontroller::class, 'grades']);
+//Route::get('/progress', [\App\Http\Controllers\advisorcontroller::class, 'progress']);
+//Route::get('/issue', [\App\Http\Controllers\advisorcontroller::class, 'issue']);
+//Route::get('/profile', [\App\Http\Controllers\advisorcontroller::class, 'profile']);
+
+
+
+
+Route::controller(AdvisorController::class)->group(function () {
+    Route::get('/dashboard', 'dashboard');
+    Route::get('/application', 'application');
+    Route::get('/courses', 'courses');
+    Route::get('/grades', 'grades');
+    Route::get('/progress', 'progress');
+    Route::get('/issue', 'issue');
+    Route::get('/profile', 'profile');
+});
+
+Route::controller(StudentController::class)->group(function () {
+    Route::get('/dashboardstudent', 'dashboardstudent');
+    Route::get('/applicationstudent', 'applicationstudent');
+    Route::get('/gradesstudent', 'gradesstudent');
+    Route::get('/conflictsstudent', 'conflictsstudent');
+    Route::get('/timetableclashstudent', 'timetableclashstudent');
+    Route::get('/extraactivitystudent', 'extraactivitystudent');
+    Route::get('/scholershipstudent', 'scholershipstudent');
+    Route::get('/profilestudent', 'profile\student');
+});
+
+
+
+// Dashboard Route
+//Route::get('/maindashboard', [CommonController::class, 'dashboard'])->name('dashboard');
+//
+//// Applications Page Route
+//Route::get('/application', [CommonController::class, 'application'])->name('application');
+//
+//// I-Grade Page Route
+//Route::get('/i-grade', [CommonController::class, 'igrade'])->name('igrade');
+//
+//// Add more routes as needed:
+//Route::get('/courses', [CommonController::class, 'courses'])->name('courses');
+//Route::get('/issue', [CommonController::class, 'issue'])->name('issue');
+//Route::get('/progress', [CommonController::class, 'progress'])->name('progress');
+//Route::get('/profile', [CommonController::class, 'profile'])->name('profile');
+//Route::get('/scholarship', [CommonController::class, 'scholarship'])->name('scholarship');
+
+
+
+Route::get('/dashboard', [CommonController::class, 'dashboard'])->name('dashboard');
+Route::get('/application', [CommonController::class, 'application'])->name('application');
+Route::get('/manage_courses', [CommonController::class, 'courses'])->name('courses');
+Route::get('/i_grade', [CommonController::class, 'igrade'])->name('igrade');
+Route::get('/acadamic_progress', [CommonController::class, 'progress'])->name('progress');
+Route::get('/report_issue', [CommonController::class, 'issue'])->name('issue');
+Route::get('/manage_profile', [CommonController::class, 'profile'])->name('profile');
+
+
+
+//Route::get('/student_main_dashboard', [CommonController::class, 'dashboard'])->name('dashboard');
+//Route::get('/applications', [CommonController::class, 'application'])->name('application');
+//Route::get('/i_grade', [CommonController::class, 'igrade'])->name('igrade');
+//Route::get('/student_conflicts', [CommonController::class, 'conflicts'])->name('conflicts');
+//Route::get('/timetable_clash', [CommonController::class, 'timetable'])->name('timetable');
+//Route::get('/extra_curricular_activity', [CommonController::class, 'activities'])->name('activities');
+//Route::get('/scholarship', [CommonController::class, 'scholarship'])->name('scholarship');
+//Route::get('/manage_profile_student', [CommonController::class, 'profile'])->name('profile');
