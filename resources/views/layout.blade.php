@@ -26,8 +26,9 @@
     }
         body {
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
-        .sidebar {
+    .sidebar {
             width: 250px;
             height: 100vh;
             background-color: #f8f9fa;
@@ -61,7 +62,6 @@
             font-weight: bold;
         }
         .content {
-            margin-left: 260px;
             padding: 20px;
         }
         .card {

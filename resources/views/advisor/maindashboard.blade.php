@@ -1,9 +1,8 @@
 @extends('layout')
-@section('content') 
+@section('content')
     <div class="content">
         <h2>Dashboard</h2>
         <div class="row mb-4">
-
             <div class="col-md-4">
               <div class="card">
                 <div class="card-header">Applications</div>
