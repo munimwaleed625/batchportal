@@ -26,7 +26,7 @@
     }
         body {
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
         }
     .sidebar {
             width: 250px;
@@ -82,9 +82,9 @@
 </head>
 <body>
 
-    <nav class="custom-navbar d-flex align-items-center justify-content-between">
+    <nav class="custom-navbar d-flex align-items-center justify-content-between ">
         <!-- Left Logo -->
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center " >
             <img src="{{ asset('assets/img/download.jpg') }}" alt="Logo" width="80" height="80">
         </div>
 
