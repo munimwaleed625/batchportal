@@ -49,3 +49,13 @@ class AdvisorController extends Controller
     public function issue() { return view('advisor/report_issue'); }
     public function profile() { return view('advisor/manage_profile'); }
 }
+
+public function store(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email|unique:users,email',
+        'phone' => 'required',
+        'username' => 'required|unique:users,username',
+        'password' => 'required|confirmed|min:6',
+    ]);
+}
