@@ -33,8 +33,6 @@
             height: 100vh;
             background-color: #f8f9fa;
             border-right: 2px solid #ddd;
-            position: fixed;
-            margin-top: 110px;
         }
         .sidebar a {
             display: block;
@@ -47,7 +45,7 @@
         }
         .sidebar a:hover, .sidebar a.active {
             background-color: #e9ecef;
-            color: #007bff;
+            color: #0d6efd;
             font-weight: bold;
         }
         .sidebar a::before {
@@ -63,7 +61,6 @@
             font-weight: bold;
         }
         .content {
-            margin-top: 100px;
             padding: 20px;
         }
         .card {
@@ -76,7 +73,7 @@
             padding: 10px;
             background: #002147;
             color: white;
-            position: fixed;
+            position: sticky;
             width: 100%;
             bottom: 0;
         }
@@ -84,29 +81,31 @@
 </head>
 <body>
 
-<div class="row" style="position: fixed;top: 0;width: 100%; z-index: 1;">
-    <nav class="custom-navbar d-flex align-items-center justify-content-between ">
-        <!-- Left Logo -->
-        <div class="d-flex align-items-center " >
-            <img src="{{ asset('assets/img/download.jpg') }}" alt="Logo" width="80" height="80">
-        </div>
-        <!-- Center/Right Text -->
-        <div class="d-flex align-items-center">
-            <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
-            <img src="{{ asset('assets/img/055a91979264664a1ee12b9453610d82.jpg') }}" alt="Profile" class="profile-icon">
-        </div>
-    </nav>
-</div>
+<nav class="custom-navbar d-flex align-items-center justify-content-between ">
+    <!-- Left Logo -->
+    <div class="d-flex align-items-center " >
+        <img src="{{ asset('assets/img/download.jpg') }}" alt="Logo" width="80" height="80">
+    </div>
+    <!-- Center/Right Text -->
+    <div class="d-flex align-items-center">
+        <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
+        <img src="{{ asset('assets/img/055a91979264664a1ee12b9453610d82.jpg') }}" alt="Profile" class="profile-icon">
+    </div>
+</nav>
+
+{{--<div class="row" style="position: fixed;top: 0;width: 100%; z-index: 1;">--}}
+{{--    --}}
+{{--</div>--}}
 <div class="row">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="sidebar">
             <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Dashboard</a>
             <a href="{{ route('application') }}" class="{{ request()->is('application') ? 'active' : '' }}">Applications</a>
-            <a href="{{ route('courses') }}" class="{{ request()->is('courses') ? 'active' : '' }}">Manage Courses</a>
-            <a href="{{ route('igrade') }}" class="{{ request()->is('igrade') ? 'active' : '' }}">I-Grade</a>
-            <a href="{{ route('progress') }}" class="{{ request()->is('progress') ? 'active' : '' }}">Academic Progress</a>
-            <a href="{{ route('issue') }}" class="{{ request()->is('issue') ? 'active' : '' }}">Report an Issue</a>
-            <a href="{{ route('profile') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Manage Profile</a>
+            <a href="{{ route('courses') }}" class="{{ request()->is('manage_courses') ? 'active' : '' }}">Manage Courses</a>
+            <a href="{{ route('igrade') }}" class="{{ request()->is('i_grade') ? 'active' : '' }}">I-Grade</a>
+            <a href="{{ route('progress') }}" class="{{ request()->is('acadamic_progress') ? 'active' : '' }}">Academic Progress</a>
+            <a href="{{ route('issue') }}" class="{{ request()->is('report_issue') ? 'active' : '' }}">Report an Issue</a>
+            <a href="{{ route('profile') }}" class="{{ request()->is('manage_profile') ? 'active' : '' }}">Manage Profile</a>
         </div>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">

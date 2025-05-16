@@ -12,6 +12,7 @@
             border-bottom: 5px solid #f1c40f; /* Yellow border */
             border-top: 5px solid #002147;   /* Dark blue border */
             padding: 10px 20px;
+             width: 100%;
         }
         .portal-title {
             font-weight: bold;
@@ -73,7 +74,7 @@
             padding: 10px;
             background: #002147;
             color: white;
-            position: fixed;
+            position: sticky;
             width: 100%;
             bottom: 0;
         }
