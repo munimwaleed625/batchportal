@@ -26,14 +26,13 @@
         }
         body {
             font-family: Arial, sans-serif;
+            overflow-x: hidden;
         }
         .sidebar {
             width: 250px;
             height: 100vh;
             background-color: #f8f9fa;
             border-right: 2px solid #ddd;
-            padding-top: 20px;
-            position: fixed;
         }
         .sidebar a {
             display: block;
@@ -42,6 +41,7 @@
             color: #333;
             font-weight: 500;
             border-bottom: 1px solid #ddd;
+
         }
         .sidebar a:hover, .sidebar a.active {
             background-color: #e9ecef;
@@ -61,7 +61,6 @@
             font-weight: bold;
         }
         .content {
-            margin-left: 260px;
             padding: 20px;
         }
         .card {
@@ -83,14 +82,14 @@
 <body>
 <nav class="custom-navbar d-flex align-items-center justify-content-between">
     <!-- Left Logo -->
-    <div class="d-flex align-items-center">
-        <img src="download.jpg" alt="Logo" width="80" height="80">
+    <div class="d-flex align-items-center " >
+        <img src="{{ asset('assets/img/download.jpg') }}" alt="Logo" width="80" height="80">
     </div>
 
     <!-- Center/Right Text -->
     <div class="d-flex align-items-center">
         <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
-        <img src="055a91979264664a1ee12b9453610d82.jpg" alt="Profile" class="profile-icon">
+        <img src="{{ asset('assets/img/055a91979264664a1ee12b9453610d82.jpg') }}" alt="Profile" class="profile-icon">
     </div>
 </nav>
 
@@ -103,11 +102,11 @@
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="sidebar">
             <a href="{{ route('student_main_dashboard') }}" class="{{ request()->is('student_main_dashboard') ? 'active' : '' }}">Dashboard</a>
-            <a href="{{ route('applications') }}" class="{{ request()->is('application') ? 'active' : '' }}">Applications</a>
-            <a href="{{ route('i_grade') }}" class="{{ request()->is('igrade') ? 'active' : '' }}">I-Grade</a>
-            <a href="{{ route('student_conflicts') }}" class="{{ request()->is('conflicts') ? 'active' : '' }}">Student Conflicts</a>
-            <a href="{{ route('timetable_clash') }}" class="{{ request()->is('timetable') ? 'active' : '' }}">Timetable Clashes</a>
-            <a href="{{ route('extra_curricular_activity') }}" class="{{ request()->is('activities') ? 'active' : '' }}">ExtraCurricular Activities</a>
+            <a href="{{ route('applications') }}" class="{{ request()->is('applications') ? 'active' : '' }}">Applications</a>
+            <a href="{{ route('grade_i') }}" class="{{ request()->is('grade_i') ? 'active' : '' }}">I-Grade</a>
+            <a href="{{ route('student_conflicts') }}" class="{{ request()->is('student_conflicts') ? 'active' : '' }}">Student Conflicts</a>
+            <a href="{{ route('timetable_clash') }}" class="{{ request()->is('timetable_clash') ? 'active' : '' }}">Timetable Clashes</a>
+            <a href="{{ route('extra_curricular_activity') }}" class="{{ request()->is('extra_curricular_activity') ? 'active' : '' }}">ExtraCurricular Activities</a>
             <a href="{{ route('scholarship') }}" class="{{ request()->is('scholarship') ? 'active' : '' }}">Apply for Scholarship Aid</a>
             <a href="{{ route('manage_profile_student') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Manage Profile</a>
         </div>

@@ -33,7 +33,6 @@
             height: 100vh;
             background-color: #f8f9fa;
             border-right: 2px solid #ddd;
-            padding-top: 20px;
             position: fixed;
             margin-top: 110px;
         }
@@ -64,6 +63,7 @@
             font-weight: bold;
         }
         .content {
+            margin-top: 100px;
             padding: 20px;
         }
         .card {
@@ -109,7 +109,7 @@
             <a href="{{ route('profile') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Manage Profile</a>
         </div>
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 p-5">
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
         @yield('content')
     </div>
 </div>

@@ -38,15 +38,15 @@ Route::post('/signup', [RegisterController::class, 'store'])->name('signup.store
 
 
 
-Route::controller(AdvisorController::class)->group(function () {
-    Route::get('/dashboard', 'dashboard');
-    Route::get('/application', 'application');
-    Route::get('/courses', 'courses');
-    Route::get('/grades', 'grades');
-    Route::get('/progress', 'progress');
-    Route::get('/issue', 'issue');
-    Route::get('/manage_profile', 'profile');
-});
+//Route::controller(AdvisorController::class)->group(function () {
+//    Route::get('/dashboard', 'dashboard');
+//    Route::get('/application', 'application');
+//    Route::get('/courses', 'courses');
+//    Route::get('/grades', 'grades');
+//    Route::get('/progress', 'progress');
+//    Route::get('/issue', 'issue');
+//    Route::get('/manage_profile', 'profile');
+//});
 
 //Route::controller(StudentController::class)->group(function () {
 //    Route::get('/dashboardstudent', 'dashboardstudent');
@@ -89,14 +89,14 @@ Route::get('/manage_profile', [CommonController::class, 'profile'])->name('profi
 
 
 
-Route::get('/student_main_dashboard', [CommonController::class, 'dashboard'])->name('student_main_dashboard');
-Route::get('/applications', [CommonController::class, 'application'])->name('application');
-Route::get('/i_grade', [CommonController::class, 'igrade'])->name('igrade');
-Route::get('/student_conflicts', [CommonController::class, 'conflicts'])->name('conflicts');
-Route::get('/timetable_clash', [CommonController::class, 'timetable'])->name('timetable');
-Route::get('/extra_curricular_activity', [CommonController::class, 'activities'])->name('activities');
-Route::get('/scholarship', [CommonController::class, 'scholarship'])->name('scholarship');
-Route::get('/manage_profile_student', [CommonController::class, 'profile'])->name('profile');
+Route::get('/student_main_dashboard', [StudentController::class, 'student_main_dashboard'])->name('student_main_dashboard');
+Route::get('/applications', [StudentController::class, 'applications'])->name('applications');
+Route::get('/grade_i', [StudentController::class, 'grade_i'])->name('grade_i');
+Route::get('/student_conflicts', [StudentController::class, 'student_conflicts'])->name('student_conflicts');
+Route::get('/timetable_clash', [StudentController::class, 'timetable_clash'])->name('timetable_clash');
+Route::get('/extra_curricular_activity', [StudentController::class, 'extra_curricular_activity'])->name('extra_curricular_activity');
+Route::get('/scholarship', [StudentController::class, 'scholarship'])->name('scholarship');
+Route::get('/manage_profile_student', [StudentController::class, 'manage_profile_student'])->name('manage_profile_student');
 
 
 

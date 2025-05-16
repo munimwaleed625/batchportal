@@ -1,12 +1,12 @@
 @extends('layout_student')
 @section('content')
 
-    <div class="content">
+     <div class="content">
         <h2>Dashboard</h2>
         <div class="row mb-4">
             <div class="col-md-4">
               <div class="card">
-                <div class="card-header">Applications</div>
+                <div class="card-header">Applications Student</div>
                 <div class="card-body">
                   <div class="d-flex flex-wrap gap-2">
                     <span class="badge bg-primary">Leave: 0</span>
