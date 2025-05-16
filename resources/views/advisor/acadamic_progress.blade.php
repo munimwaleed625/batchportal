@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="content">
-    <h2>Students-Teacher Conflicts</h2>
+    <h2>Acadamic Progress</h2>
 
     <div class="container my-5 d-flex justify-content-center">
         <div class="w-75">

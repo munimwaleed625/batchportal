@@ -7,9 +7,12 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
 
-class StudentController extends Controller
+class StudentController extends BaseController
 {
-    public function dashboardstudent() { return view('students/student_main_dashboard'); }
+    public function student_main_dashboard()
+    {
+        return view('students\student_main_dashboard');
+    }
     public function applicationstudent() { return view('students/applications'); }
     public function gradesstudent() { return view('students/i_grade'); }
     public function conflictsstudent() { return view('students/student_conflicts'); }

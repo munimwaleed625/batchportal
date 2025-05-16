@@ -9,29 +9,41 @@ use Illuminate\Routing\Controller as BaseController;
 
 class CommonController extends controller
 {
-    public function dashboard() {
+    public function dashboard()
+    {
         return view('advisor/maindashboard');
     }
-    public function application() {
+
+    public function application()
+    {
         return view('advisor/application');
     }
-    public function courses() {
+
+    public function courses()
+    {
         return view('advisor/manage_courses');
     }
-    public function igrade() {
+
+    public function igrade()
+    {
         return view('advisor/i_grade');
     }
-    public function progress() {
+
+    public function progress()
+    {
         return view('advisor/acadamic_progress');
     }
-    public function issue() {
+
+    public function issue()
+    {
         return view('advisor/report_issue');
     }
-    public function profile() {
+
+    public function profile()
+    {
         return view('advisor/manage_profiles');
     }
-
-
+}
 //    public function dashboards() { return view('advisor/student_main_dashboard'); }
 //    public function applications() { return view('advisor/applications'); }
 //    public function gradeI() { return view('advisor/i_grade'); }
@@ -41,7 +53,6 @@ class CommonController extends controller
 //    public function scholarships() { return view('advisor/scholarship'); }
 //    public function profiles() { return view('advisor/manage_profile_student'); }
 
-}
 //Route::get('/student_main_dashboard', [CommonController::class, 'dashboard'])->name('dashboard');
 //Route::get('/applications', [CommonController::class, 'application'])->name('application');
 //Route::get('/i_grade', [CommonController::class, 'igrade'])->name('igrade');

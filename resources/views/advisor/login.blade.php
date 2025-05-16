@@ -47,14 +47,14 @@
 
       <!-- LEFT IMAGE -->
       <div class="col-md-6 d-none d-md-block">
-        <img src="Capturejhigbyugvgyu.JPG" alt="Students" class="img-fluid h-100 w-100" style="object-fit: cover;">
+        <img src="assets/img/Capturejhigbyugvgyu.JPG" alt="Students" class="img-fluid h-100 w-100" style="object-fit: cover;">
       </div>
 
       <!-- RIGHT LOGIN FORM -->
       <div class="col-md-6 bg-white">
         <div class="form-section">
           <div class="text-center mb-4">
-            <img src="download.jpg" alt="Logo" width="50">
+            <img src="assets/img/download.jpg" alt="Logo" width="50">
             <h6 class="mt-2 fw-bold">HITEC UNIVERSITY</h6>
             <p class="text-muted">Login to HITEC University</p>
           </div>

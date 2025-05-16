@@ -45,13 +45,13 @@
 <div class="container signup-container">
   <div class="card shadow-lg w-100" style="max-width: 900px;">
     <div class="row g-0">
-      
+
       <!-- Left Side Image -->
 <div class="col-md-6 d-none d-md-block p-0">
   <img src="download2.jpg" alt="HITEC University" class="img-fluid h-100 w-100" style="object-fit: cover; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
 </div>
 
-      
+
       <!-- Right Side Form -->
       <div class="col-md-6 bg-white">
         <div class="form-section">
@@ -60,46 +60,73 @@
             <h6 class="mt-2 fw-bold">HITEC UNIVERSITY</h6>
             <p class="text-muted">Welcome to Join HITEC University</p>
           </div>
-          
-          <form>
-            <div class="mb-2">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-control" placeholder="Enter email">
-            </div>
-            <div class="mb-2">
-              <label class="form-label">Phone #</label>
-              <input type="text" class="form-control" placeholder="Enter phone no">
-            </div>
-            <div class="mb-2">
-              <label class="form-label">Password</label>
-              <input type="password" class="form-control" placeholder="Enter password">
-            </div>
-            <div class="mb-2">
-              <label class="form-label">Username</label>
-              <input type="text" class="form-control" placeholder="Enter username">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" placeholder="Confirm password">
-            </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Create Account</button>
-            </div>
 
-            <div class="my-3 text-center">
-              <span class="text-muted">or</span>
-            </div>
+{{--          <form>--}}
+{{--            <div class="mb-2">--}}
+{{--              <label class="form-label">Email Address</label>--}}
+{{--              <input type="email" class="form-control" placeholder="Enter email">--}}
+{{--            </div>--}}
+{{--            <div class="mb-2">--}}
+{{--              <label class="form-label">Phone #</label>--}}
+{{--              <input type="text" class="form-control" placeholder="Enter phone no">--}}
+{{--            </div>--}}
+{{--            <div class="mb-2">--}}
+{{--              <label class="form-label">Password</label>--}}
+{{--              <input type="password" class="form-control" placeholder="Enter password">--}}
+{{--            </div>--}}
+{{--            <div class="mb-2">--}}
+{{--              <label class="form-label">Username</label>--}}
+{{--              <input type="text" class="form-control" placeholder="Enter username">--}}
+{{--            </div>--}}
+{{--            <div class="mb-3">--}}
+{{--              <label class="form-label">Confirm Password</label>--}}
+{{--              <input type="password" class="form-control" placeholder="Confirm password">--}}
+{{--            </div>--}}
+{{--            <div class="d-grid">--}}
+{{--              <button type="submit" class="btn btn-primary">Create Account</button>--}}
+{{--            </div>--}}
 
-            <div class="d-grid mb-3">
-              <button type="button" class="btn btn-google">
-                <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google icon"> Sign up with Google
-              </button>
-            </div>
+{{--            <div class="my-3 text-center">--}}
+{{--              <span class="text-muted">or</span>--}}
+{{--            </div>--}}
 
-            <div class="text-center">
-              <small class="text-muted">Already have an account? <a href="#">Sign in now</a></small>
-            </div>
-          </form>
+{{--            <div class="d-grid mb-3">--}}
+{{--              <button type="button" class="btn btn-google">--}}
+{{--                <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google icon"> Sign up with Google--}}
+{{--              </button>--}}
+{{--            </div>--}}
+
+{{--            <div class="text-center">--}}
+{{--              <small class="text-muted">Already have an account? <a href="#">Sign in now</a></small>--}}
+{{--            </div>--}}
+{{--          </form>--}}
+
+            <form method="POST" action="{{ route('signup.store') }}">
+                @csrf
+                <div class="mb-2">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Phone #</label>
+                    <input type="text" name="phone" class="form-control" placeholder="Enter phone no" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm password" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </div>
+            </form>
         </div>
       </div>
 
