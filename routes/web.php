@@ -17,9 +17,9 @@ use App\Http\Controllers\CommonController;
 |
 */
 
-Route::get('/login', function () {
-    return view('advisor/login');
-});
+//Route::get('/login', function () {
+//    return view('advisor/login');
+//});
 
 
 use App\Http\Controllers\Auth\RegisterController;
@@ -100,3 +100,7 @@ Route::get('/manage_profile_student', [StudentController::class, 'manage_profile
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
