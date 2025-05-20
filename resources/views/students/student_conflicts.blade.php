@@ -1,130 +1,80 @@
 @extends('layout_student')
 @section('content')
-<div class="content">
-    <h2>Students Conflicts</h2>
+<div class="content mb-5">
+    <h2>Students Conflicts:</h2>
 
-    <div class="container my-5 d-flex justify-content-center">
-        <div class="w-75">
-
-          <div class="card shadow-sm rounded">
-            <div class="card-body">
-              <h6 class="fw-bold mb-3">Search</h6>
-              <form class="row g-2 align-items-center justify-content-center">
-                <div class="col-md-4">
-                  <input type="text" class="form-control" placeholder="Username">
-                </div>
-                <div class="col-md-4">
-                  <input type="text" class="form-control" placeholder="Reg No">
-                </div>
-                <div class="col-md-3 text-md-end">
-                  <button type="submit" class="btn px-4" style="background-color: #003366; color: white; border: none;">
-                    Search
-                  </button>
-                </div>
-              </form>
+    <div class="container mt-5"  style="width: 950px">
+        <div class="card shadow">
+            <div class="card-header text-white" style="background-color:#002147">
+                <h4 class="mb-0" style="font-weight: bold">Conflicts</h4>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container my-4 d-flex justify-content-center">
-        <div class="w-75">
-          <div class="card shadow-sm rounded">
             <div class="card-body">
-              <h6 class="fw-bold mb-3 text-center">Applications</h6>
-              <div class="table-responsive">
-                <table class="table table-bordered table-sm">
-                  <thead class="table-light">
-                    <tr>
-                      <th>Reg No</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone No</th>
-                      <th>Address</th>
-                      <th>Date</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>001</td>
-                      <td>Ali Khan</td>
-                      <td>ali@example.com</td>
-                      <td>03001234567</td>
-                      <td>Islamabad</td>
-                      <td>2025-04-13</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>002</td>
-                      <td>Sara Ahmed</td>
-                      <td>sara@example.com</td>
-                      <td>03129876543</td>
-                      <td>Lahore</td>
-                      <td>2025-04-12</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>003</td>
-                      <td>Usman Tariq</td>
-                      <td>usman@example.com</td>
-                      <td>03331234567</td>
-                      <td>Karachi</td>
-                      <td>2025-04-11</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>004</td>
-                      <td>Hina Raza</td>
-                      <td>hina@example.com</td>
-                      <td>03451112222</td>
-                      <td>Multan</td>
-                      <td>2025-04-10</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>005</td>
-                      <td>Omar Zaid</td>
-                      <td>omar@example.com</td>
-                      <td>03557778899</td>
-                      <td>Faisalabad</td>
-                      <td>2025-04-09</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>006</td>
-                      <td>Zoya Noor</td>
-                      <td>zoya@example.com</td>
-                      <td>03669990000</td>
-                      <td>Rawalpindi</td>
-                      <td>2025-04-08</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>007</td>
-                      <td>Bilal Arif</td>
-                      <td>bilal@example.com</td>
-                      <td>03774445566</td>
-                      <td>Quetta</td>
-                      <td>2025-04-07</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>Maria Khan</td>
-                      <td>maria@example.com</td>
-                      <td>03882223344</td>
-                      <td>Peshawar</td>
-                      <td>2025-04-06</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                <form  method="POST">
+                    @csrf
+                    <div class="row mb-3">
+                        <label style="font-size: 20px;font-weight: 400" for="firststudent" class="form-label">Conflict of</label>
+                        <div class="col-md-6" align="left">
+                            <label for="studentName" class="form-label">Student Name</label>
+                            <input type="text" class="form-control" id="studentName" placeholder="full Name">
+                        </div>
+                        <div class="col-md-6" align="left">
+                            <label for="rollNumber" class="form-label">Roll Number</label>
+                            <input type="text" class="form-control" id="rollNumber" placeholder="Roll no">
+                        </div>
+                    </div>
+
+
+
+                    <div class="row mb-3" >
+                        <label style="font-size: 20px;font-weight: 400" for="secondstudent" class="form-label">Conflict with</label>
+                        <div class="col-md-6" align="left">
+                            <label for="studentName" class="form-label">Student Name</label>
+                            <input type="text" class="form-control" id="studentName" placeholder="Enter Student Name">
+                        </div>
+                        <div class="col-md-6" align="left">
+                            <label for="rollNumber" class="form-label">Roll Number</label>
+                            <input type="text" class="form-control" id="rollNumber" placeholder="Enter Roll Number">
+                        </div>
+                    </div>
+
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="courseType" class="form-label">Course Title</label>--}}
+{{--                        <select class="form-select" id="courseType" name="course_type" required>--}}
+{{--                            <option value="">Select Type</option>--}}
+{{--                            <option value="Sick Leave">Global Software Development</option>--}}
+{{--                            <option value="Casual Leave">Cloud Computing</option>--}}
+{{--                            <option value="Emergency Leave">Economics</option>--}}
+{{--                            <option value="Emergency Leave">Foreign language</option>--}}
+{{--                            <option value="Emergency Leave">Web Engineering</option>--}}
+{{--                            <option value="Emergency Leave">Formal Methods In SE</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+
+                    <div class="mb-3" align="left">
+                        <label for="issueDate" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="issueDate" name="issue_date" required>
+                    </div>
+
+                    <div class="mb-3" align="left">
+                        <label for="reason" class="form-label">Issue/Explaination</label>
+                        <textarea class="form-control" id="reason" name="reason" rows="4" required></textarea>
+                    </div>
+
+{{--                    <div>--}}
+{{--                        <div style="margin-bottom: 40px;">--}}
+{{--                            <label class="form-label" for="customFile">Add Attachment(Reports,etc):</label>--}}
+{{--                            <input type="file" class="form-control" id="customFile" style="width: 300px;margin: auto"/>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 
 
 @endsection

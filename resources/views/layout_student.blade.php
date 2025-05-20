@@ -28,10 +28,11 @@
         body {
             font-family: Arial, sans-serif;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         .sidebar {
             width: 250px;
-            height: 100vh;
+            height: 100%;
             background-color: #f8f9fa;
             border-right: 2px solid #ddd;
         }
@@ -45,14 +46,18 @@
 
         }
         .sidebar a:hover, .sidebar a.active {
-            background-color: #e9ecef;
-            color: #007bff;
+            background-color: #002147;
+            color: #ffffff;
             font-weight: bold;
         }
         .sidebar a::before {
             content: ">";
             margin-right: 8px;
             color: #333;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
         }
         .topbar {
             background-color: #fff;
@@ -73,10 +78,119 @@
             text-align: center;
             padding: 10px;
             background: #002147;
-            color: white;
-            position: sticky;
+            color: #ffffff;
             width: 100%;
             bottom: 0;
+            position: fixed;
+        }
+        .dropdown-menu {
+            padding: .7rem 0rem;
+            font-size: .875rem;
+            line-height: 22px;
+            color: #5c5776;
+            border: none;
+            box-shadow: 0 10px 30px 0 rgba(31, 45, 61, 0.1);
+            border-radius: .5rem;
+            margin-left: -126px;
+
+        }
+        .dropdown-menu{
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+            -webkit-transition: all 0.3s ease-in;
+            -o-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+        }
+        .dropdown {
+            &:hover {
+                >.dropdown-menu {
+                    -webkit-transform: scaleY(1);
+                    -ms-transform: scaleY(1);
+                    transform: scaleY(1);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        .dropdown-submenu {
+            &:hover {
+                >.dropdown-menu {
+                    -webkit-transform: scaleY(1);
+                    -ms-transform: scaleY(1);
+                    transform: scaleY(1);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        @media (min-width: 990px){
+
+            .dropright-lg {
+                position: relative;
+                .dropdown-menu{
+                    top: 0;
+                    right: 0%;
+                    left: 10%;
+                    margin-top: 0;
+                    margin-right: 0.1rem;
+                }
+            }
+        }
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: .200em;
+            vertical-align: .255em;
+            content: ">";
+            border-top: 0rem;
+            border-right: 0rem;
+            border-bottom: 0;
+            border-left: 0rem;
+            float: right;
+
+        }
+
+        .avatar-md {
+            width: 56px;
+            height: 56px;
+
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        // avatar indicators
+           .avatar {
+               position: relative;
+               display: inline-block;
+               width: 3rem;
+               height: 3rem;
+               font-size: 1rem;
+           }
+
+
+        .avatar-online:before {
+            background-color: green;
+        }
+
+
+        .avatar-indicators:before {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            right: 0%;
+            width: 30%;
+            height: 30%;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            display: table;
+
         }
     </style>
 </head>
@@ -90,7 +204,14 @@
     <!-- Center/Right Text -->
     <div class="d-flex align-items-center">
         <span class="portal-title me-3">Welcome to Hitec Batch Advisory Portal</span>
-        <img src="{{ asset('assets/img/055a91979264664a1ee12b9453610d82.jpg') }}" alt="Profile" class="profile-icon">
+{{--        <img src="{{ asset('assets/img/055a91979264664a1ee12b9453610d82.jpg') }}" alt="Profile" class="profile-icon">--}}
+        <div class="dropdown">
+            <img src="assets/img/pf.png" class="rounded-circle" alt="Profile" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" width="35" height="35" />
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -100,7 +221,7 @@
 </div>
 </nav>
 <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2" style="height:100vh;">
         <div class="sidebar">
             <a href="{{ route('student_main_dashboard') }}" class="{{ request()->is('student_main_dashboard') ? 'active' : '' }}">Dashboard</a>
             <a href="{{ route('applications') }}" class="{{ request()->is('applications') ? 'active' : '' }}">Applications</a>

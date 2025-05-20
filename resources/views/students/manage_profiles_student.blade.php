@@ -1,129 +1,63 @@
 @extends('layout_student')
 @section('content')
-<div class="content">
-    <h2>Profile</h2>
+<div class="content mb-5">
+    <h2>Manage Profile:</h2>
 
-    <div class="container my-5 d-flex justify-content-center">
-        <div class="w-75">
 
-          <div class="card shadow-sm rounded">
-            <div class="card-body">
-              <h6 class="fw-bold mb-3">Search</h6>
-              <form class="row g-2 align-items-center justify-content-center">
-                <div class="col-md-4">
-                  <input type="text" class="form-control" placeholder="Username">
-                </div>
-                <div class="col-md-4">
-                  <input type="text" class="form-control" placeholder="Reg No">
-                </div>
-                <div class="col-md-3 text-md-end">
-                  <button type="submit" class="btn px-4" style="background-color: #003366; color: white; border: none;">
-                    Search
-                  </button>
-                </div>
-              </form>
+    <div class="container mt-5"  style="width: 950px">
+        <div class="card shadow">
+            <div class="card-header text-white" style="background-color:#002147">
+                <h4 class="mb-0">Form For Extra Curricular Activity</h4>
             </div>
-          </div>
-        </div>
-      </div>
+    <div class="container profile-form">
+        <div class="card-body">
+            <form method="POST">
+            @csrf
 
-      <div class="container my-4 d-flex justify-content-center">
-        <div class="w-75">
-          <div class="card shadow-sm rounded">
-            <div class="card-body">
-              <h6 class="fw-bold mb-3 text-center">Applications</h6>
-              <div class="table-responsive">
-                <table class="table table-bordered table-sm">
-                  <thead class="table-light">
-                    <tr>
-                      <th>Reg No</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone No</th>
-                      <th>Address</th>
-                      <th>Date</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>001</td>
-                      <td>Ali Khan</td>
-                      <td>ali@example.com</td>
-                      <td>03001234567</td>
-                      <td>Islamabad</td>
-                      <td>2025-04-13</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>002</td>
-                      <td>Sara Ahmed</td>
-                      <td>sara@example.com</td>
-                      <td>03129876543</td>
-                      <td>Lahore</td>
-                      <td>2025-04-12</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>003</td>
-                      <td>Usman Tariq</td>
-                      <td>usman@example.com</td>
-                      <td>03331234567</td>
-                      <td>Karachi</td>
-                      <td>2025-04-11</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>004</td>
-                      <td>Hina Raza</td>
-                      <td>hina@example.com</td>
-                      <td>03451112222</td>
-                      <td>Multan</td>
-                      <td>2025-04-10</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>005</td>
-                      <td>Omar Zaid</td>
-                      <td>omar@example.com</td>
-                      <td>03557778899</td>
-                      <td>Faisalabad</td>
-                      <td>2025-04-09</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>006</td>
-                      <td>Zoya Noor</td>
-                      <td>zoya@example.com</td>
-                      <td>03669990000</td>
-                      <td>Rawalpindi</td>
-                      <td>2025-04-08</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>007</td>
-                      <td>Bilal Arif</td>
-                      <td>bilal@example.com</td>
-                      <td>03774445566</td>
-                      <td>Quetta</td>
-                      <td>2025-04-07</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                    <tr>
-                      <td>008</td>
-                      <td>Maria Khan</td>
-                      <td>maria@example.com</td>
-                      <td>03882223344</td>
-                      <td>Peshawar</td>
-                      <td>2025-04-06</td>
-                      <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div class="row mb-3">
+                <div class="col-md-6" align="left">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" id="firstName" class="form-control" value="Daniel" disabled>
+                </div>
+                <div class="col-md-6" align="left">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" value="Adams" disabled>
+                </div>
             </div>
-          </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6" align="left">
+                    <label for="email" class="form-label">E-mail Address</label>
+                    <input type="email" id="email" class="form-control" value="daniel.adams@example.com" disabled>
+                </div>
+                <div class="col-md-6" align="left">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="+7 (805) 348 95 72">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6" align="left">
+                    <label for="newPassword" class="form-label">New Password</label>
+                    <input type="password" id="newPassword" name="new_password" class="form-control" placeholder="Enter new password">
+                </div>
+                <div class="col-md-6" align="left">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirm_password" class="form-control" placeholder="Re-enter new password">
+                </div>
+            </div>
+
+
+
+
+
+            <button type="submit" class="btn btn-success">Update Profile</button>
+        </form>
         </div>
+    </div>
+        </div>
+    </div>
+
       </div>
 
 @endsection

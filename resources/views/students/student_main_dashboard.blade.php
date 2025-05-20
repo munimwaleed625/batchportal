@@ -17,20 +17,18 @@
                 </div>
               </div>
             </div>
-
             <div class="col-md-4">
                 <div class="card">
-                  <div class="card-header">Manage Students</div>
-                  <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item d-flex justify-content-between align-items-center">abc <span class="badge bg-primary rounded-pill">0</span></li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">abc <span class="badge bg-primary rounded-pill">0</span></li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">abc <span class="badge bg-primary rounded-pill">0</span></li>
-                    </ul>
-                  </div>
+                    <div class="card-header">Manage Students</div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">abc <span class="badge bg-primary rounded-pill">0</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">abc <span class="badge bg-primary rounded-pill">0</span></li>
+                             <li class="list-group-item d-flex justify-content-between align-items-center">abc <span class="badge bg-primary rounded-pill">0</span></li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-
+            </div>
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <h5>Conflicts</h5>
