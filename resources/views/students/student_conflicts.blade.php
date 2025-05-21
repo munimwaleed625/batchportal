@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
 {{--                action="{{route('student_conflicts.store')}}"--}}
-                <form  method="POST" action="{{route('student_conflicts.store')}}">
+                <form  method="POST" >
                     @csrf
                     <div class="row mb-3">
                         <label style="font-size: 20px;font-weight: 400" for="firststudent" class="form-label">Conflict of</label>

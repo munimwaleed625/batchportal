@@ -9,7 +9,8 @@
                 <h4 class="mb-0">Form For Extra Curricular Activity</h4>
             </div>
             <div class="card-body">
-                <form  method="POST" action="{{route('extra_curricular_act.store')}}">
+{{--                action="{{route('extra_curricular_act.store')}}"--}}
+                <form  method="POST" >
                     @csrf
                     <div class="mb-3" align="left">
                         <label for="studentName" class="form-label">Student Name</label>

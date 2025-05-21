@@ -4,14 +4,34 @@
     <h2>Application:</h2>
 
     <div class="container mt-5"  style="width: 950px">
-{{--        @if ($errors->any())<div class="alert alert-danger">    <button type="button" class="close" data-dismiss="alert">×</button>    <ul>        @foreach ($errors->all() as $error)        <li>{{ $error }}</li>        @endforeach    </ul></div>@endif@if(session('success'))<div class="alert alert-success">    <ul>        <li>{{session('success')}}<span aria-hidden="true" style="cursor:pointer; float:right;" title="click to close this iFrame" onclick="closeIframe()"><i class="fa fa-times 2x" aria-hidden="true">{{trans("common.click_here_to_close")}}</i></span></li>    </ul></div>--}}
+        @if ($errors->any())<div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+            @if(session('success'))
+                <div class="alert alert-success">
+                    <ul class="close">
+                        <li>
+                            {{session('success')}}
+                            <span aria-hidden="true" style="cursor:pointer; float:right;" title="click to close this iFrame">
+                                <span >&times;</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            @endif
         <div class="card shadow">
             <div class="card-header text-white" style="background-color:#002147">
                 <h4 class="mb-0">Leave Application Form</h4>
             </div>
             <div class="card-body">
 {{--                action="{{route('applications.store')}}"--}}
-              <form method="POST" action="{{route('application.store')}}">
+              <form method="post" action="{{route('application.store')}}">
                     @csrf
                     <div class="mb-3" align="left">
                         <label for="studentName" class="form-label">Student Name</label>
@@ -51,7 +71,7 @@
                  <div>
                      <div style="margin-bottom: 40px;">
                          <label class="form-label" for="attachment">Add Attachment:</label>
-                         <input type="file" class="form-control" id="attachment" style="width: 300px;margin: auto"/>
+                         <input type="file" class="form-control" id="attachment" name="attachment" style="width: 300px;margin: auto"/>
                      </div>
                  </div>
                   <button type="submit" class="btn btn-success">Submit</button>
@@ -61,6 +81,3 @@
     </div>
 
 @endsection
-
-
-{{--    action="{{ route('leave.submit') --}}

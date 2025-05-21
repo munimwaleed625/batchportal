@@ -8,7 +8,8 @@
             <div class="card-header text-white" style="background-color:#002147">
                 <h4 class="mb-0">Form For Scholarship</h4>
             </div>
-        <form method="POST" enctype="multipart/form-data" action="{{route('scholarship.store')}}">
+{{--            action="{{route('scholarship.store')}}"--}}
+        <form method="POST" enctype="multipart/form-data" >
             @csrf
 
                 <div class="mb-3" align="left">
