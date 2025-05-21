@@ -165,7 +165,7 @@
             object-fit: cover;
         }
 
-        // avatar indicators
+        /*// avatar indicators*/
            .avatar {
                position: relative;
                display: inline-block;
@@ -209,9 +209,19 @@
             <img src="assets/img/pf.png" class="rounded-circle" alt="Profile" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" width="35" height="35" />
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
             </ul>
         </div>
+
+
     </div>
 </nav>
 

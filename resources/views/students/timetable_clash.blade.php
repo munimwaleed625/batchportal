@@ -9,7 +9,7 @@
                     <h4 class="mb-0" style="font-weight: bold">TimeTable Clash Issue</h4>
                 </div>
                 <div class="card-body">
-                    <form  method="POST">
+                    <form  method="POST" action="{{route('timetable_clash.store')}}">
                         @csrf
                             <div class="mb-3" align="left">
                                 <label for="studentName" class="form-label">Student Name</label>

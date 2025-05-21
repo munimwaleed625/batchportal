@@ -9,7 +9,8 @@
                 <h4 class="mb-0" style="font-weight: bold">Conflicts</h4>
             </div>
             <div class="card-body">
-                <form  method="POST">
+{{--                action="{{route('student_conflicts.store')}}"--}}
+                <form  method="POST" action="{{route('student_conflicts.store')}}">
                     @csrf
                     <div class="row mb-3">
                         <label style="font-size: 20px;font-weight: 400" for="firststudent" class="form-label">Conflict of</label>

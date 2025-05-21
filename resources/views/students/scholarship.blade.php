@@ -4,11 +4,11 @@
     <h2>Scholarship/Financial Aid</h2>
 
     <div class="container mt-5 "  style="width: 950px">
-        <div class="card shadow">
+        <div class="card shadow mb-3">
             <div class="card-header text-white" style="background-color:#002147">
-                <h4 class="mb-3">Form For Scholarship</h4>
+                <h4 class="mb-0">Form For Scholarship</h4>
             </div>
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" action="{{route('scholarship.store')}}">
             @csrf
 
                 <div class="mb-3" align="left">

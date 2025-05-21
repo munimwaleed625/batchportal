@@ -8,7 +8,7 @@
                 <h4 class="mb-0">I-Grade Application Form</h4>
             </div>
             <div class="card-body">
-                <form  method="POST">
+                <form  method="POST" action="{{route('grade_i.store')}}">
                     @csrf
                     <div class="mb-3" align="left">
                         <label for="studentName" class="form-label" >Student Name</label>
