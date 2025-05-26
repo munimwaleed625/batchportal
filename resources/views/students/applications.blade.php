@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
 {{--                action="{{route('applications.store')}}"--}}
-              <form method="post" action="{{route('application.store')}}">
+              <form method="post" enctype="multipart/form-data" action="{{route('application.store')}}">
                     @csrf
                     <div class="mb-3" align="left">
                         <label for="studentName" class="form-label">Student Name</label>

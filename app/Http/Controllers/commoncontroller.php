@@ -48,7 +48,7 @@ class CommonController extends controller
 //    public function applications() { return view('advisor/applications'); }
 //    public function gradeI() { return view('advisor/i_grade'); }
 //    public function conflictss() { return view('advisor/student_conflicts'); }
-//    public function timetables() { return view('advisor/timetable_clash'); }
+//    public function timetables() { return view('advisor/timetable_clashs'); }
 //    public function activitiess() { return view('advisor/extra_curricular_activity'); }
 //    public function scholarships() { return view('advisor/scholarship'); }
 //    public function profiles() { return view('advisor/manage_profile_student'); }
@@ -57,7 +57,7 @@ class CommonController extends controller
 //Route::get('/applications', [CommonController::class, 'application'])->name('application');
 //Route::get('/i_grade', [CommonController::class, 'igrade'])->name('igrade');
 //Route::get('/student_conflicts', [CommonController::class, 'conflicts'])->name('conflicts');
-//Route::get('/timetable_clash', [CommonController::class, 'timetable'])->name('timetable');
+//Route::get('/timetable_clashs', [CommonController::class, 'timetable'])->name('timetable');
 //Route::get('/extra_curricular_activity', [CommonController::class, 'activities'])->name('activities');
 //Route::get('/scholarship', [CommonController::class, 'scholarship'])->name('scholarship');
 //Route::get('/manage_profile_student', [CommonController::class, 'profile'])->name('profile');

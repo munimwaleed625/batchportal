@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\grade_i;
+use App\Models\student_conflicts;
+use App\Models\timetable_clash;
+use App\Models\extra_curricular_act;
+use App\Models\scholarship;
 use http\Client\Curl\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -86,21 +90,97 @@ $requestData['scanned_image_1'] = $scanned_image_1;*/
         return view('students/student_conflicts');
     }
 
+    public function student_conflicts_store(Request $request)
+    {
+
+        $request->validate(
+            [
+                'first_name' => 'required|max:150',
+                'first_roll_no' => 'required',
+                'second_name' => 'required|max:150',
+                'second_roll_no' => 'required',
+                'issue_explain' => 'required',
+                'date_issue' => 'required',
+
+            ]);
+        $request->except('_token');
+        student_conflicts::create($request->all());
+        return redirect()->route('student_conflicts')->with('success', 'Student conflicts posted successfully.');
+    }
+
     public function timetable_clash()
     {
         return view('students/timetable_clash');
     }
+
+    public function timetable_clash_store(Request $request): \Illuminate\Http\RedirectResponse
+    {
+
+        $request->validate(
+            [
+                'full_name' => 'required|max:150',
+                'roll_no' => 'required',
+                'first_course' => 'required',
+                'second_course' => 'required',
+                'clash_date' => 'required',
+                'clash_time' => 'required',
+                'description_clash' => 'required',
+
+            ]);
+        $request->except('_token');
+        timetable_clash::create($request->all());
+        return redirect()->route('timetable_clash')->with('success', 'Application posted successfully.');
+    }
+
 
     public function extra_curricular_activity()
     {
         return view('students/extra_curricular_activity');
     }
 
+
+    public function extra_curricular_activity_store(Request $request): \Illuminate\Http\RedirectResponse
+    {
+
+        $request->validate(
+            [
+                'full_name' => 'required|max:150',
+                'roll_no' => 'required',
+                'act_date' => 'required',
+                'act_time' => 'required',
+                'activity_type' => 'required',
+                'activity_explained' => 'required',
+
+            ]);
+        $request->except('_token');
+        extra_curricular_act::create($request->all());
+        return redirect()->route('extra_curricular_activity')->with('success', 'Application posted successfully.');
+    }
+
+
     public function scholarship()
     {
         return view('students/scholarship');
     }
 
+    public function scholarship_store(Request $request): \Illuminate\Http\RedirectResponse
+    {
+
+        $request->validate(
+            [
+                'full_name' => 'required|max:150',
+                'roll_no' => 'required',
+                'semester' => 'required',
+                'cgpa' => 'required',
+                'monthly_income' => 'required',
+                'reason_scholarship' => 'required',
+                'attachment' => 'required',
+
+            ]);
+        $request->except('_token');
+        scholarship::create($request->all());
+        return redirect()->route('scholarship')->with('success', 'Application posted successfully.');
+    }
     public function manage_profile_student()
     {
         return view('students/manage_profiles_student');

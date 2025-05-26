@@ -88,8 +88,7 @@ return new class extends Migration
             $table->string('roll_no', 25)->unique();
             $table->char('semester', 40);
             $table->char('cgpa', 40);
-            $table->dateTime('act_time');
-            $table->char('monthly_income_explained');
+            $table->char('monthly_income');
             $table->text('reason_scholarship');
             $table->string('attachment', 100);
 //            $table->dateTime('created_at')->useCurrent();

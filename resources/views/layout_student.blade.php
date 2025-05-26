@@ -237,7 +237,7 @@
             <a href="{{ route('applications') }}" class="{{ request()->is('applications') ? 'active' : '' }}">Applications</a>
             <a href="{{ route('grade_i') }}" class="{{ request()->is('grade_i') ? 'active' : '' }}">I-Grade</a>
             <a href="{{ route('student_conflicts') }}" class="{{ request()->is('student_conflicts') ? 'active' : '' }}">Student Conflicts</a>
-            <a href="{{ route('timetable_clash') }}" class="{{ request()->is('timetable_clash') ? 'active' : '' }}">Timetable Clashes</a>
+            <a href="{{ route('timetable_clash') }}" class="{{ request()->is('timetable_clashs') ? 'active' : '' }}">Timetable Clashes</a>
             <a href="{{ route('extra_curricular_activity') }}" class="{{ request()->is('extra_curricular_activity') ? 'active' : '' }}">ExtraCurricular Activities</a>
             <a href="{{ route('scholarship') }}" class="{{ request()->is('scholarship') ? 'active' : '' }}">Apply for Scholarship Aid</a>
             <a href="{{ route('manage_profile_student') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Manage Profile</a>
