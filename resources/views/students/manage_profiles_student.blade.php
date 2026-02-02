@@ -17,22 +17,22 @@
             <div class="row mb-3">
                 <div class="col-md-6" align="left">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" id="firstName" class="form-control" value="Daniel" disabled>
+                    <input type="text" id="firstName" class="form-control" value="{{ $user->first_name }}" disabled>
                 </div>
-                <div class="col-md-6" align="left">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" id="lastName" class="form-control" value="Adams" disabled>
-                </div>
+{{--                <div class="col-md-6" align="left">--}}
+{{--                    <label for="lastName" class="form-label">Last Name</label>--}}
+{{--                    <input type="text" id="lastName" class="form-control" value="Adams" disabled>--}}
+{{--                </div>--}}
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6" align="left">
                     <label for="email" class="form-label">E-mail Address</label>
-                    <input type="email" id="email" class="form-control" value="daniel.adams@example.com" disabled>
+                    <input type="email" id="email" class="form-control" value="{{ $user->email }}" disabled>
                 </div>
                 <div class="col-md-6" align="left">
                     <label for="phone" class="form-label">Phone Number</label>
-                    <input type="text" id="phone" name="phone" class="form-control" placeholder="+7 (805) 348 95 72">
+                    <input type="text" id="phone" name="phone" class="form-control" value="{{ $user->ph_no }}">
                 </div>
             </div>
 

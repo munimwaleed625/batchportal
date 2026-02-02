@@ -82,13 +82,13 @@ Route::post('/signup', [RegisterController::class, 'store'])->name('signup.store
 
 Auth::routes();
 
-Route::get('/dashboard', [CommonController::class, 'dashboard'])->name('dashboard');
-Route::get('/application', [CommonController::class, 'application'])->name('application');
-Route::get('/manage_courses', [CommonController::class, 'courses'])->name('courses');
-Route::get('/i_grade', [CommonController::class, 'igrade'])->name('igrade');
-Route::get('/acadamic_progress', [CommonController::class, 'progress'])->name('progress');
-Route::get('/report_issue', [CommonController::class, 'issue'])->name('issue');
-Route::get('/manage_profile', [CommonController::class, 'profile'])->name('profile');
+Route::get('/dashboard', [AdvisorController::class, 'dashboard'])->name('dashboard');
+Route::get('/application', [AdvisorController::class, 'application'])->name('application');
+Route::get('/manage_courses', [AdvisorController::class, 'courses'])->name('courses');
+Route::get('/i_grade', [AdvisorController::class, 'igrade'])->name('igrade');
+Route::get('/acadamic_progress', [AdvisorController::class, 'progress'])->name('progress');
+Route::get('/report_issue', [AdvisorController::class, 'issue'])->name('issue');
+Route::get('/manage_profile', [AdvisorController::class, 'profile'])->name('profile');
 
 
 

@@ -7,6 +7,7 @@ use App\Models\student_conflicts;
 use App\Models\timetable_clash;
 use App\Models\extra_curricular_act;
 use App\Models\scholarship;
+//use App\Models\User;
 use http\Client\Curl\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -70,14 +71,14 @@ $requestData['scanned_image_1'] = $scanned_image_1;*/
                 $scanned_image_1 = $objUpload->fileName;
             }
         }
-        $login_user_id = (Auth::user()->id);
+//        $login_user_id = (Auth::user()->id);
         grade_i::create([
             'full_name' => $request->full_name,
             'roll_no' => $request->roll_no,
             'course_type' => $request->course_type,
             'valid_reason' => $request->valid_reason,
             'attachment_i' => $scanned_image_1 ?? null,
-            'created_by' => $login_user_id,
+//            'created_by' => $login_user_id,
         ]);
         return redirect()->route('grade_i')->with('success', 'Grade-I Application Posted successfully.');
     }
@@ -185,6 +186,17 @@ $requestData['scanned_image_1'] = $scanned_image_1;*/
     {
         return view('students/manage_profiles_student');
     }
+
+
+
+//    public function profile()
+//    {
+//        // Assuming the user is logged in
+//        $user = Auth::user();
+//
+//        return view('students.profile', compact('user'));
+//    }
+
 
     private function importMedia($file, $directory)
     {

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\grade_i;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-
+use App\Models\Applications;
 
 //public function dashboard()
 //{
@@ -13,10 +14,15 @@ use Illuminate\Routing\Controller as BaseController;
 //}
 class AdvisorController extends BaseController
 {
+    public function dashboard()
+    {
+        return view('advisor/maindashboard');
+    }
 
     public function application()
     {
-        return view('advisor.application');
+        $applications = Applications::all();
+        return view('advisor.application', compact('applications'));
     }
 
 
@@ -25,9 +31,10 @@ class AdvisorController extends BaseController
         return view('advisor.manage_courses');
     }
 
-    public function grades()
+    public function igrade()
     {
-        return view('advisor.i_grade');
+        $grade = grade_i::all();
+        return view('advisor/i_grade', compact('grade'));
     }
 
     public function progress()
