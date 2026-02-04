@@ -80,35 +80,6 @@ Route::post('/signup', [RegisterController::class, 'store'])->name('signup.store
 //Route::get('/profile', [CommonController::class, 'profile'])->name('profile');
 //Route::get('/scholarship', [CommonController::class, 'scholarship'])->name('scholarship');
 
-Auth::routes();
-
-Route::get('/dashboard', [AdvisorController::class, 'dashboard'])->name('dashboard');
-Route::get('/application', [AdvisorController::class, 'application'])->name('application');
-Route::get('/manage_courses', [AdvisorController::class, 'courses'])->name('courses');
-Route::get('/i_grade', [AdvisorController::class, 'igrade'])->name('igrade');
-Route::get('/acadamic_progress', [AdvisorController::class, 'progress'])->name('progress');
-Route::get('/report_issue', [AdvisorController::class, 'issue'])->name('issue');
-Route::get('/manage_profile', [AdvisorController::class, 'profile'])->name('profile');
-
-
-
-Route::get('/student_main_dashboard', [StudentController::class, 'student_main_dashboard'])->name('student_main_dashboard');
-Route::get('/applications', [StudentController::class, 'applications'])->name('applications');
-Route::post('/applications/store', [StudentController::class, 'application_store'])->name('application.store');
-Route::get('/grade_i', [StudentController::class, 'grade_i'])->name('grade_i');
-Route::post('/grade_i/store', [StudentController::class, 'grade_i_store'])->name('grade_i.store');
-Route::get('/student_conflicts', [StudentController::class, 'student_conflicts'])->name('student_conflicts');
-Route::post('/student_conflicts/store', [StudentController::class, 'student_conflicts_store'])->name('student_conflicts.store');
-Route::get('/timetable_clash', [StudentController::class, 'timetable_clash'])->name('timetable_clash');
-Route::post('/timetable_clash/store', [StudentController::class, 'timetable_clash_store'])->name('timetable_clash.store');
-Route::get('/extra_curricular_activity', [StudentController::class, 'extra_curricular_activity'])->name('extra_curricular_activity');
-Route::post('/extra_curricular_activity/store', [StudentController::class, 'extra_curricular_activity_store'])->name('extra_curricular_act.store');
-Route::get('/scholarship', [StudentController::class, 'scholarship'])->name('scholarship');
-Route::post('/store', [StudentController::class, 'scholarship_store'])->name('scholarship.store');
-Route::get('/manage_profile_student', [StudentController::class, 'manage_profile_student'])->name('manage_profile_student');
-
-
-
 
 
 
