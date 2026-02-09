@@ -1,0 +1,30 @@
+name: Trigger Sync to Portal
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: 'Folder/file to sync from batchportal (e.g., src/components or src/App.js)'
+        required: true
+        type: string
+      dest:
+        description: 'Destination path in Portal (e.g., src/components or src/App.js)'
+        required: true
+        type: string
+
+jobs:
+  trigger-sync:
+    runs-on: ubuntu-latest
+      - name: Trigger sync workflow in hbas
+          run: |
+            curl -X POST \
+              -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token ${{ secrets.MERGE_PAT }}" \
+              https://api.github.com/repos/munimwaleed625/hbas/dispatches \
+              -d '{
+                "event_type": "sync-folder",
+                "client_payload": {
+                  "folder": "${{ github.event.inputs.folder }}",
+                  "dest": "${{ github.event.inputs.dest }}"
+                }
+              }'
