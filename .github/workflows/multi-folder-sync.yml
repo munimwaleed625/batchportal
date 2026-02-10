@@ -32,3 +32,6 @@ jobs:
             \"dest\": \"$folder\"
           }
           }"
+
+          sleep 3
+          done
