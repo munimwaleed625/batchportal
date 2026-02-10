@@ -4,25 +4,22 @@ on:
   workflow_dispatch:
     inputs:
       folder:
-        description: 'Folder/file to sync from batchportal (e.g., src/components or src/App.js)'
+        description: 'Folders to sync from batchportal'
         required: true
         type: string
-      dest:
-        description: 'Destination path in Portal (e.g., src/components or src/App.js)'
-        required: true
-        type: string
+        default: 'resources,routes'
 
 jobs:
-  trigger-sync:
+  trigger-multi-sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger sync workflow in hbas
+      - name: Trigger sync for each folder
         run: |
-          FOLDER="${{ inputs.folder }}"
-          DEST="${{ inputs.dest }}"
+          FOLDERS="${{ inputs.folders }}"
+          IFS=',' read -ra FOLDER_ARRAY <<< "$FOLDERS"
 
-          echo "Folder: $FOLDER"
-          echo "Dest: $DEST"
+          for folder in "${FOLDER_ARRAY[@]}"; do
+            folder=$(echo "$folder" | xargs)
 
           curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
@@ -32,6 +29,6 @@ jobs:
           \"event_type\": \"sync-folder\",
           \"client_payload\": {
             \"folder\": \"$folder\",
-            \"dest\": \"$DEST\"
-            }
+            \"dest\": \"$folder\"
+          }
           }"
