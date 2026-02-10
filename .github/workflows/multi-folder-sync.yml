@@ -1,4 +1,4 @@
-name: Multi-folde-sync-event
+name: Multi-folder-sync-event
 
 on:
   workflow_dispatch:
