@@ -3,7 +3,7 @@ name: Multi-folde-sync-event
 on:
   workflow_dispatch:
     inputs:
-      folder:
+      folders:
         description: 'Folders to sync from batchportal'
         required: true
         type: string
