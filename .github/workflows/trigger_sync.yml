@@ -16,15 +16,22 @@ jobs:
   trigger-sync:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Trigger sync workflow in hbas
+        run: |
+          FOLDER="${{ steps.changes.outputs.folder }}"
+          DEST="${{ steps.changes.outputs.dest }}"
+
+          echo "Folder: $FOLDER"
+          echo "Dest: $DEST"
+
           curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.MERGE_PAT }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.MERGE_PAT }}" \
             https://api.github.com/repos/munimwaleed625/hbas/dispatches \
-            -d '{
-              "event_type": "sync-folder",
-              "client_payload": {
-                "folder": "${{ steps.changes.outputs.folder }}",
-                "dest": "${{ steps.changes.outputs.dest }}"
-              }
-            }'
+            -d "{
+            \"event_type\": \"sync-folder\",
+            \"client_payload\": {
+              \"folder\": \"$FOLDER\",
+              \"dest\": \"$DEST\"
+            }
+          }"
