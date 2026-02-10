@@ -18,8 +18,8 @@ jobs:
     steps:
       - name: Trigger sync workflow in hbas
         run: |
-          FOLDER="${{ steps.changes.outputs.folder }}"
-          DEST="${{ steps.changes.outputs.dest }}"
+          FOLDER="${{ inputs.folder }}"
+          DEST="${{ inputs.dest }}"
 
           echo "Folder: $FOLDER"
           echo "Dest: $DEST"
