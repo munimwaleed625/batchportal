@@ -1,0 +1,21 @@
+name: Trigger NEWCRUD mapping run
+
+on:
+  workflow_dispatch:
+    inputs:
+      mapping_key:
+        description: "Mapping key stored in NEWCRUD mappings.json"
+        required: true
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch to NEWCRUD controller
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.MERGE_PAT }}
+          repository: munimwaleed625/newcrud
+          event-type: run-mapping
+          client-payload: |
+            { "mapping_key": "${{ inputs.mapping_key }}" }
