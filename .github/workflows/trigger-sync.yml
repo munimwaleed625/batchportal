@@ -2,10 +2,6 @@ name: Trigger NEWCRUD mapping run
 
 on:
   workflow_dispatch:
-    inputs:
-      mapping_key:
-        description: "Mapping key"
-        required: true
 
 jobs:
   dispatch:
@@ -18,4 +14,4 @@ jobs:
           repository: munimwaleed625/newcrud
           event-type: run-mapping
           client-payload: |
-            { "mapping_key": "${{ inputs.mapping_key }}" }
+            { "mapping_key": "batchportal_views" }
