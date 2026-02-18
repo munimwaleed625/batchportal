@@ -10,7 +10,7 @@ jobs:
       - name: Dispatch to NEWCRUD controller
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.Trigger_Token }}
+          token: ${{ secrets.NEWCRUD_DISPATCH_TOKEN }}
           repository: munimwaleed625/newcrud
           event-type: run-mapping
           client-payload: |
