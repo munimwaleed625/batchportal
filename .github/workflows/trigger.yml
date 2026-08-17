@@ -1,8 +1,10 @@
 name: Trigger Core Sync
 
-# REPO: batchportal-api        RULE: api_core
-# This file does not copy anything. It only sends a signal to newcrud-core,
-# which then does the actual merge.
+# LOCAL FOLDER: D:\batchportal-api
+# GITHUB REPO : munimwaleed625/batchportal   (default branch: main)
+# RULE        : api_core
+#
+# This file copies nothing. It only signals the newcrud repo, which does the merge.
 
 on:
   workflow_dispatch:
@@ -20,10 +22,10 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Send a sync request to newcrud-core
+      - name: Send a sync request to newcrud
         env:
           TOKEN: ${{ secrets.CORE_SYNC_TOKEN }}
-          CORE_REPO: munimwaleed625/newcrud-core
+          CORE_REPO: munimwaleed625/newcrud
           RULE: api_core
           SRC_REF: ${{ inputs.ref || github.ref_name }}
         run: |
@@ -50,4 +52,4 @@ jobs:
             "https://api.github.com/repos/$CORE_REPO/dispatches" \
             -d "$BODY"
 
-          echo "Dispatch sent. Check the Actions tab of newcrud-core."
+          echo "Dispatch sent. Check the Actions tab of the newcrud repo."
