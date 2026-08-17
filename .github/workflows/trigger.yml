@@ -1,17 +1,18 @@
 name: Trigger Core Sync
 
-# REPO: batchportal-api      RULE: api_core
-# Ye file sirf newcrud-core ko signal bhejti hai; merge core karta hai.
+# REPO: batchportal-api        RULE: api_core
+# This file does not copy anything. It only sends a signal to newcrud-core,
+# which then does the actual merge.
 
 on:
   workflow_dispatch:
     inputs:
       ref:
-        description: "Kis branch se sync karna hai"
+        description: "Branch to sync from"
         required: false
         default: "main"
 
-  # Auto-sync chahiye to uncomment karo (phir manual control chala jayega)
+  # Uncomment for automatic sync on every push (you lose manual control)
   # push:
   #   branches: [main]
 
@@ -19,7 +20,7 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name:Sync request
+      - name: Send a sync request to newcrud-core
         env:
           TOKEN: ${{ secrets.CORE_SYNC_TOKEN }}
           CORE_REPO: munimwaleed625/newcrud-core
@@ -29,7 +30,7 @@ jobs:
           set -euo pipefail
 
           if [ -z "${TOKEN:-}" ]; then
-            echo "::error::Secret CORE_SYNC_TOKEN is repo me set nahi hai"; exit 1
+            echo "::error::Secret CORE_SYNC_TOKEN is not set in this repo"; exit 1
           fi
 
           BODY=$(jq -nc \
@@ -49,4 +50,4 @@ jobs:
             "https://api.github.com/repos/$CORE_REPO/dispatches" \
             -d "$BODY"
 
-          echo "Triggered"
+          echo "Dispatch sent. Check the Actions tab of newcrud-core."
