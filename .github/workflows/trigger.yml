@@ -1,11 +1,5 @@
 name: Trigger Core Sync
 
-# LOCAL FOLDER: D:\batchportal-api
-# GITHUB REPO : munimwaleed625/batchportal   (default branch: main)
-# RULE        : api_core
-#
-# This file copies nothing. It only signals the newcrud repo, which does the merge.
-
 on:
   workflow_dispatch:
     inputs:
@@ -13,10 +7,6 @@ on:
         description: "Branch to sync from"
         required: false
         default: "main"
-
-  # Uncomment for automatic sync on every push (you lose manual control)
-  # push:
-  #   branches: [main]
 
 jobs:
   dispatch:
