@@ -4,14 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       ref:
+        description: "Branch to sync from"
         required: false
         default: "main"
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Send a sync request to newcrud
+      - name: Sync and wait for the result
         env:
           TOKEN: ${{ secrets.CORE_SYNC_TOKEN }}
           CORE_REPO: munimwaleed625/newcrud
@@ -24,21 +26,96 @@ jobs:
             echo "::error::Secret CORE_SYNC_TOKEN is not set in this repo"; exit 1
           fi
 
+          API="https://api.github.com"
+          AUTH="Authorization: Bearer $TOKEN"
+          ACCEPT="Accept: application/vnd.github+json"
+
+          # Unique id so we can find OUR run and not somebody else's
+          DID="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+
+          # ---------- 1. send the dispatch ----------
           BODY=$(jq -nc \
             --arg rule "$RULE" \
             --arg repo "$GITHUB_REPOSITORY" \
             --arg ref  "$SRC_REF" \
             --arg sha  "$GITHUB_SHA" \
+            --arg did  "$DID" \
             '{event_type: "sync-request",
-              client_payload: {rule: $rule, source_repo: $repo, ref: $ref, sha: $sha}}')
+              client_payload: {rule: $rule, source_repo: $repo, ref: $ref,
+                               sha: $sha, dispatch_id: $did}}')
 
-          echo "Dispatching -> $CORE_REPO  (rule: $RULE, ref: $SRC_REF)"
+          echo "[SYNC] Dispatching -> $CORE_REPO  (rule: $RULE, ref: $SRC_REF, id: $DID)"
 
-          curl -sSf -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $TOKEN" \
+          curl -sSf -X POST -H "$ACCEPT" -H "$AUTH" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/$CORE_REPO/dispatches" \
-            -d "$BODY"
+            "$API/repos/$CORE_REPO/dispatches" -d "$BODY"
 
-          echo "Dispatch sent. Check the Actions tab of the newcrud repo."
+          # ---------- 2. find the run it created ----------
+          echo "[SYNC] Looking for the Core Sync run..."
+          RUN_ID=""
+          for i in $(seq 1 40); do
+            sleep 5
+            RUN_ID=$(curl -sS -H "$ACCEPT" -H "$AUTH" \
+              "$API/repos/$CORE_REPO/actions/runs?event=repository_dispatch&per_page=30" \
+              | jq -r --arg d "$DID" \
+                '[.workflow_runs[] | select(.display_title // "" | contains($d))][0].id // empty')
+            if [ -n "$RUN_ID" ]; then break; fi
+            echo "  ...not visible yet (${i}/40)"
+          done
+
+          if [ -z "$RUN_ID" ]; then
+            echo "::error::Dispatch was accepted but no matching Core Sync run appeared."
+            echo "Check $CORE_REPO Actions manually."
+            exit 1
+          fi
+
+          RUN_URL="https://github.com/$CORE_REPO/actions/runs/$RUN_ID"
+          echo "[SYNC] Core run: $RUN_URL"
+
+          # ---------- 3. wait for it to finish ----------
+          STATUS=""; CONCLUSION=""
+          for i in $(seq 1 120); do
+            JSON=$(curl -sS -H "$ACCEPT" -H "$AUTH" "$API/repos/$CORE_REPO/actions/runs/$RUN_ID")
+            STATUS=$(echo "$JSON"     | jq -r '.status')
+            CONCLUSION=$(echo "$JSON" | jq -r '.conclusion // ""')
+            if [ "$STATUS" = "completed" ]; then break; fi
+            echo "  ...core run is $STATUS (${i}/120)"
+            sleep 5
+          done
+
+          if [ "$STATUS" != "completed" ]; then
+            echo "::error::Timed out waiting for the core run. See $RUN_URL"
+            exit 1
+          fi
+
+          # ---------- 4. report what landed on dev ----------
+          echo "[SYNC] Core run finished: $CONCLUSION"
+
+          if [ "$CONCLUSION" = "success" ]; then
+            HEAD=$(curl -sS -H "$ACCEPT" -H "$AUTH" \
+              "$API/repos/$CORE_REPO/commits?sha=dev&per_page=1")
+            MSG=$(echo "$HEAD"  | jq -r '.[0].commit.message')
+            CSHA=$(echo "$HEAD" | jq -r '.[0].sha')
+
+            if echo "$MSG" | grep -q "^sync($RULE)"; then
+              FILES=$(curl -sS -H "$ACCEPT" -H "$AUTH" \
+                "$API/repos/$CORE_REPO/commits/$CSHA" \
+                | jq -r '.files[]? | "  - \(.filename)  (+\(.additions)/-\(.deletions))"')
+              N=$(echo "$FILES" | grep -c . || true)
+              echo "[SYNC] RESULT: $N file(s) merged into dev"
+              echo "$FILES"
+            else
+              echo "[SYNC] RESULT: nothing changed - dev was already up to date"
+            fi
+
+            {
+              echo "### Sync complete"
+              echo ""
+              echo "Rule: \`$RULE\`  |  Result: **$CONCLUSION**"
+              echo ""
+              echo "[Core run]($RUN_URL)"
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::error::Core sync did not succeed ($CONCLUSION). See $RUN_URL"
+            exit 1
+          fi
