@@ -9,3 +9,4 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
 }
 // sync test
+// wait test
